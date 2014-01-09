@@ -1,0 +1,44 @@
+{
+  "name": "iostreams",
+  "version": "0.0.0",
+  "description": "Open input and output streams given providers and small config",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/grunt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/webcast-io/iostreams.git"
+  },
+  "keywords": [
+    "iostreams",
+    "streams",
+    "aws",
+    "s3",
+    "http",
+    "file",
+    "fs",
+    "save",
+    "put",
+    "get"
+  ],
+  "author": "Ben Evans <ben@bensbit.co.uk> (http://bensbit.co.uk)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/webcast-io/iostreams/issues"
+  },
+  "homepage": "https://github.com/webcast-io/iostreams",
+  "dependencies": {
+    "knox": "~0.8.8",
+    "async": "~0.2.9",
+    "underscore": "~1.5.2"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-mocha-test": "~0.8.1",
+    "grunt-contrib-jshint": "~0.8.0"
+  }
+}
