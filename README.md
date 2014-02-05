@@ -8,15 +8,15 @@ Quick amnd easy input & output streams from a bit of JSON.
 
 ## Example
 
-Get an input stream from the filesystem and output stream to S3.
+Get an input stream from the filesystem, compile your [stylus](http://learnboost.github.io/stylus/) and output stream to S3.
 
 ```js
 iostreams.getInputOutputStreams(
-  'file:' + __dirname + '/myvideo.mp4',
-  's3://mybucket.s3.amazonaws.com/myoutputfile.mov'
+  'file:' + __dirname + '/stylus/style.stylus',
+  's3://mybucket.s3.amazonaws.com/css/style.css'
 , function (err, inputStream, outputStream) {
   if(err) throw err;
-  inputStream.pipe(myBlackBoxVideoConverter()).pipe(outputStream);
+  inputStream.pipe(require('gulp-stylus')).pipe(outputStream);
 });
 ```
 
