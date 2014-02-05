@@ -4,7 +4,7 @@ Quick amnd easy input & output streams from a bit of JSON.
 
 [![Build Status](https://travis-ci.org/webcast-io/iostreams.png?branch=master)](https://travis-ci.org/webcast-io/iostreams)
 [![Coverage Status](https://coveralls.io/repos/webcast-io/iostreams/badge.png?branch=master)](https://coveralls.io/r/webcast-io/iostreamsbranch=master)
-[![Dependency Status](https://david-dm.org/bwebcast-io/iostreams.png)](https://david-dm.org/webcast-io/iostreams)
+[![Dependency Status](https://david-dm.org/webcast-io/iostreams.png)](https://david-dm.org/webcast-io/iostreams)
 
 ## Example
 
