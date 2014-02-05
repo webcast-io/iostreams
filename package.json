@@ -3,12 +3,11 @@
   "version": "0.1.0",
   "description": "Open input and output streams given providers and small config",
   "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
   "scripts": {
-    "test": "./node_modules/.bin/grunt"
-  },
+    "test": "./node_modules/.bin/grunt",
+    "cover": "./node_modules/.bin/istanbul cover node_modules/.bin/_mocha -- -- -u exports -R spec test/providers/*.js",
+    "coveralls": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- -- -u exports --report lcovonly -- -R spec -- test/providers/*.js && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls && rm -rf ./coverage"
+ },
   "repository": {
     "type": "git",
     "url": "git://github.com/webcast-io/iostreams.git"
@@ -39,6 +38,9 @@
   "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-mocha-test": "~0.8.1",
-    "grunt-contrib-jshint": "~0.8.0"
+    "grunt-contrib-jshint": "~0.8.0",
+    "istanbul": "~0.2.4",
+    "coveralls": "~2.7.1",
+    "mocha": "~1.15.1"
   }
 }
