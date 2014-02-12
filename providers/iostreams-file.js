@@ -5,7 +5,8 @@
 // Module Dependencies
 //
 
-var fs = require('fs');
+var fs     = require('fs');
+var mkdirp = require('mkdirp');
 
 //
 // Opens a stream from wherever the destined input is
@@ -31,10 +32,16 @@ var getInputStream = function(config, callback) {
 //
 var getOutputStream = function(config, callback) {
 
-  var stream = fs.createWriteStream(config.path);
-  stream.on('error', callback);
-  stream.on('open', function() {
-    callback(null, stream);
+
+  mkdirp(config.path.substr(0, config.path.lastIndexOf('/')), function(err) {
+    if(err) {
+      return callback(err);
+    }
+    var stream = fs.createWriteStream(config.path);
+    stream.on('error', callback);
+    stream.on('open', function() {
+      callback(null, stream);
+    });
   });
 
 };
