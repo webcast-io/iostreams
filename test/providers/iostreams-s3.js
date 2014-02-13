@@ -6,6 +6,7 @@ var http       = require('http');
 var ioStream   = require('../../lib/iostreams')();
 var ioStreamS3 = require('../../providers/iostreams-s3');
 var _          = require('underscore');
+var fs         = require('fs');
 
 ioStream.use(ioStreamS3);
 
@@ -50,10 +51,42 @@ describe('iostreams-file', function() {
 
   describe('getOutputStream', function() {
 
-    it('should provide a stream given a correct file string');
-    it('should provide an error given a file string with no file at path');
-    it('should provide an error given a correct object input');
-    it('should provide an error given a file object with no file at path');
+    var fileSize, filePath = __dirname + '/../assets/testfile1.flv';
+
+    before(function(done) {
+      fs.stat(filePath, function(err, stats) {
+        if(err) return done(err);
+        fileSize = stats.size;
+        done();
+      });
+    });
+
+    it('should provide a stream given a correct file string', function(done) {
+
+      ioStream.getOutputStream(_.extend(baseConfig, {
+        path: '/file-to-be-created.flv',
+        'Content-Length': fileSize,
+        'Content-Type':   'video/flv',
+        'x-amz-acl':      'public-read'
+      }), function(err, stream) {
+        assert.ifError(err);
+        assert(stream instanceof http.OutgoingMessage);
+
+        var fileStream = fs.createReadStream(filePath);
+
+        stream.on('response', function(awsRes) {
+          if(awsRes.statusCode !== 200) {
+            return done(new Error('Non 200 statuscode'))
+          } else {
+            return done();
+          }
+        });
+
+        fileStream.pipe(stream);
+
+      });
+    });
+    it('should provide an error given a icorrect object input');
 
   });
 

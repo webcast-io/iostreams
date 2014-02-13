@@ -34,7 +34,7 @@ var getInputStream = function(config, callback) {
 //
 var getOutputStream = function(config, callback) {
   var client = knox.createClient(config);
-  var req = client.put(config.path, config.headers, callback);
+  var req = client.put(config.path, config, callback);
   callback(null, req);
 };
 
