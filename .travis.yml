@@ -1,14 +1,18 @@
 language: node_js
 node_js:
-  - '0.10'
-  - '0.8'
+- '0.10'
+- '0.8'
 env:
   matrix:
-      - TEST_CMD="mocha"
-      - TEST_CMD="lint"
+  - TEST_CMD="mocha"
+  - TEST_CMD="lint"
+  global:
+  - secure: HA8hsx7kCWg/9DOC2izGkax6MYtU3Uq+u0tCkQk6j8EW797Fx0EJCY57FngB2kkoNDI3VUz/jgzNAUphqd+5Z7d+mOVrQvBeID7CKi/k2NVINbazwB0MkfiXfXSGE142W6DWUgrtGD9/WCF9QF1oMLv8GyWPrWj2Oo8KNbPVYho=
+  - secure: MX7qRI0/Mt0uv2HQad0EKSCq358uAT8SIUEwb51udoB7169cuVBgWEmPclA3/GgLDwUKjxi9gFOA3aZrFoUcnXoTbtaSRtvzGGARX00oLBzBJMFf3QkPpKHpknVpLtD8VmRwvaLjBiNfLryY3tGupQEZZ3wOOE9YYmYMb9+50eU=
+  - secure: bUWTPXjiQrSR7MfUlaamWPuaBC5QE8iyQamG8IJLATTtgTeExIhBaxyyBYow54OWS+Avw+9YVHs5KgD3MPFHFrTBMSoFm0KlC26XLjazpNKnlt4qg0tj1Ccj0K/JFAw+aAuDQP4z3JbZSYELKEe9dW/2FR0MQmhgepFoF2H8y2A=
 before_script:
-  - npm install -g grunt-cli
+- npm install -g grunt-cli
 script:
-  - grunt travis
+- grunt travis
 after_script:
-  - if [ "$TEST_CMD" = 'mocha' ]; then npm run coveralls; fi
+- if [ "$TEST_CMD" = 'mocha' ]; then npm run coveralls; fi
