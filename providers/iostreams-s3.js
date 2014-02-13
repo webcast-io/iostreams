@@ -15,7 +15,15 @@ var knox = require('knox');
 //
 var getInputStream = function(config, callback) {
   var client = knox.createClient(config);
-  client.getFile(config.path, callback);
+  client.getFile(config.path, function(err, res) {
+    if(err) {
+      return callback(err, res);
+    } else if(res.statusCode !== 200) {
+      return callback(new Error('S3 Responded with a non 200 status code: ' + res.statusCode), res);
+    } else {
+      return callback(err || null, res);
+    }
+  });
 };
 
 //
