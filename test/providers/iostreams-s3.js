@@ -55,7 +55,9 @@ describe('iostreams-file', function() {
 
     before(function(done) {
       fs.stat(filePath, function(err, stats) {
-        if(err) return done(err);
+        if(err) {
+          return done(err);
+        }
         fileSize = stats.size;
         done();
       });
@@ -76,7 +78,7 @@ describe('iostreams-file', function() {
 
         stream.on('response', function(awsRes) {
           if(awsRes.statusCode !== 200) {
-            return done(new Error('Non 200 statuscode'))
+            return done(new Error('Non 200 statuscode'));
           } else {
             return done();
           }
