@@ -1,6 +1,6 @@
 {
   "name": "iostreams",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Open input and output streams given providers and small config",
   "main": "index.js",
   "scripts": {
