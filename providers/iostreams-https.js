@@ -15,9 +15,7 @@ var https = require('https');
 //
 var getInputStream = function(config, callback) {
 
-  config.method = config.method || 'GET';
-
-  var req = https.request(config);
+  var req = https.get(config);
 
   req.on('error', function(err) {
     callback(err);
