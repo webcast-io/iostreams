@@ -28,12 +28,13 @@ First you're going to need to import the module, and create an instance (by call
 var ioStreams = require('iostreams')();
 ```
 
-Then add some [providers](https://github.com/webcast-io/iostreams/tree/master/providers)
+Then add some providers
 
 ```js
-iostreams.use(require('iostreams/providers/iostreams-file'));
-iostreams.use(require('iostreams/providers/iostreams-s3'));
-iostreams.use(require('iostreams/providers/iostreams-http'));
+iostreams.use(require('iostreams-file'));
+iostreams.use(require('iostreams-s3'));
+iostreams.use(require('iostreams-http'));
+iostreams.use(require('iostreams-https'));
 ```
 
 Now you can use the three functions to get your input and output streams:
