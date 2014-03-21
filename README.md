@@ -1,6 +1,6 @@
 # IOStreams
 
-Quick amnd easy input & output streams from a bit of JSON.
+Quick and easy input & output streams from a bit of JSON.
 
 [![Build Status](https://travis-ci.org/webcast-io/iostreams.png?branch=master)](https://travis-ci.org/webcast-io/iostreams)
 [![Coverage Status](https://coveralls.io/repos/webcast-io/iostreams/badge.png?branch=master)](https://coveralls.io/r/webcast-io/iostreams?branch=master)
